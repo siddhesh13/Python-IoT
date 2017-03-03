@@ -1,12 +1,20 @@
-from flask import Response, Flask
+from flask import Response, Flask, current_app as app
 import os
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
+
 
 @app.route("/")
 def hello():
-   return "Hello World Rupin"
-   
+   return app.send_static_file('index.html')   
 
+   
+@app.route('/<path:path>')
+def static_file(path):
+    return app.send_static_file(path)
+
+@app.route("/newPage")
+def newPage():
+   return "This is the new Page" 
 
 
 if __name__ == "__main__":
