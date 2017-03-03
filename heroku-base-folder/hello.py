@@ -14,7 +14,11 @@ def static_file(path):
 
 @app.route("/newPage")
 def newPage():
-   return "This is the new Page" 
+   return "This is the new Page"
+
+@app.route("/param/<a>/<b>")
+def parameters(a,b):
+   return str(int(a)+int(b))
 
 
 if __name__ == "__main__":
