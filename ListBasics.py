@@ -16,7 +16,7 @@ print(numberList)
 lengthOfList= len(numberList)
 
 # Traversing through all elements and printing them
-for i in range (0,lengthOfList-1) :
+for i in range (0,lengthOfList) :
     print(numberList[i])
 
 #OR alternativelly, if your list expands and contracts, dont find length, just use

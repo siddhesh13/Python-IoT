@@ -1,0 +1,3 @@
+tweepy
+gunicorn
+Flask

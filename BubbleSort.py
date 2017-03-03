@@ -14,8 +14,7 @@ for i in range(0,listlength): # Start a For Loop to execute "listlength" number 
             unorderedlist[i+1]=unorderedlist[i] #Make the Swap
             unorderedlist[i]=a #set current Element to value saved in temporary variable. 
 
-       
-            
+                  
 
 
 
