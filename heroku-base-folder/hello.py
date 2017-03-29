@@ -16,7 +16,7 @@ def static_file(path):
 def newPage():
    return "This is the new Page"
 
-@app.route("/param/<a>/<b>")
+@app.route("/add/<a>/<b>")
 def parameters(a,b):
    return str(int(a)+int(b))
 
