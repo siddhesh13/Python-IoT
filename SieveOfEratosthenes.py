@@ -1,30 +1,27 @@
-primeList=[2] # We need a starting seed number for the primeList
-print ("Enter a Number: ") # Ask the User for a number till which he/she requires primes.
-rangeMax=int(input()) # accept input, convert to int
-for testNumber in range (3,rangeMax): # start a for Loop, from 3  to rangeMax
-    isPrime=True #assume the number is prime
-    print(primeList)# print the primelist Progress
-    # traverse through the primelist, test the number i against all numbers in the primeList   
-    for prime in primeList: 
-        if testNumber%prime==0: # test divisibility, % is notation for Modulo, operation returns remainder after division.
-            isPrime=False # since the remainder is zero, the current number in primeList divides i fully. 
-            print(str(testNumber) + " is divisible by " +str(prime))
-            break # we dont need to test for any other number. Loop ends here abruptly
-#--------------------
-#        The Loop ends here, Was our assumption of the number being prime correct? If yes, the variable
-#        isPrime will continue to stay True
+import math
 
+primeList=[]
+print("Enter a Number")# Ask the user for a Number
+n=input()
+n=int(n) #Change the number to an integer 
+for index in range (0, n+1):
+    primeList.append(index) # populate a list with all numbers starting from 0 to n+1
+squareRoot=math.sqrt(n) #Find the square root of n
 
-        
-    if isPrime==True: # Hurray, we found another prime, lets add it to our primeList
-        primeList.append(testNumber)
+# since the square root can be decimal,
+#lets convert it to the next highest integer using the ceil function
+divisorRange=math.ceil(squareRoot) 
+for index in range ( 2, divisorRange): #Start with 2, till the divisorRange, increment by 1.
+    # there could be numbers which are factors already, and may have been set to 0, lets ignore them.
+    if index==0:
+        continue # use continue to proceed to the next loop item, without executing anything below 
+    for factors in range( index*2, n, index): #Start with twice the index, increment by index
+        primeList[factors]=0 # find all factors of the chosen number, set all factors to 0
+    #print(primeList)
 
-# All numbers from 3 to a have been tested, our PrimeList array would be filled, Lets print it
+while 0 in primeList:
+    primeList.remove(0) # remove all 0's
 
-
-print("Numbers which are prime till " +str(rangeMax) +" are")
-print(primeList)        
-        
-        
-        
-
+print("The primes till " + str(n) + " are:")   
+print(primeList) # print the primelist
+    
